@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Keyboard from './components/keyboard/Keyboard';
 import Board from './components/board/Board';
+import wordList from './config/words.json'
 
 function App() {
-  const [selection, setSelection] = useState('')
   const [boardState, setBoardState] = useState<string[]>([
     '', '', '', '', '',
     '', '', '', '', '',
@@ -12,8 +12,12 @@ function App() {
     '', '', '', '', '',
     '', '', '', '', '',
   ])
-  const answer = "GREEN"
   const [guessIndex, setGuessIndex] = useState(0)
+  const [answer, setAnswer] = useState<string>('')
+
+  useEffect(() => {
+    setAnswer(genWord())
+  }, [])
 
   const createAnswer = (answer: string) => {
     let answerArr = []
@@ -26,6 +30,14 @@ function App() {
     }
 
     return answerArr
+  }
+
+  const genWord = () => {
+    return wordList.words[Math.floor(Math.random() * wordList.words.length)]
+  }
+
+  const checkWin = (boardState: string[], answer: string) => {
+
   }
 
   const updateBoard = (value: string) => {
@@ -42,7 +54,7 @@ function App() {
         Gessir
       </div>
       <div style={{ marginTop: 20 }}>
-        <Board answer={createAnswer("color")} boardState={boardState} updateState={updateBoard}/>
+        <Board answer={createAnswer(answer)} boardState={boardState} updateState={updateBoard}/>
       </div>
       <div style={{ marginTop: 40 }}>
         <Keyboard setBoard={updateBoard} />
