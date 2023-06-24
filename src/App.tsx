@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <div style={{ marginTop: 20 }}>
-        <Board answer={createAnswer("solar")} boardState={boardState} updateState={updateBoard}/>
+        <Board answer={createAnswer("moose")} boardState={boardState} updateState={updateBoard}/>
       </div>
       <div style={{ marginTop: 20 }}>
         <Keyboard setBoard={updateBoard} />
