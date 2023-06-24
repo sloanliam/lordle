@@ -38,10 +38,13 @@ function App() {
 
   return (
     <div className="App">
-      <div style={{ marginTop: 20 }}>
-        <Board answer={createAnswer("moose")} boardState={boardState} updateState={updateBoard}/>
+      <div style={{paddingTop: 20, fontSize: 48}}>
+        Gessir
       </div>
       <div style={{ marginTop: 20 }}>
+        <Board answer={createAnswer("color")} boardState={boardState} updateState={updateBoard}/>
+      </div>
+      <div style={{ marginTop: 40 }}>
         <Keyboard setBoard={updateBoard} />
       </div>
     </div>
