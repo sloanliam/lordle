@@ -53,10 +53,13 @@ function App() {
       <div style={{paddingTop: 20, fontSize: 48}}>
         Gessir
       </div>
+      <div>
+        v1.0.0
+      </div>
       <div style={{ marginTop: 20 }}>
         <Board answer={createAnswer(answer)} boardState={boardState} updateState={updateBoard}/>
       </div>
-      <div style={{ marginTop: 40 }}>
+      <div style={{ marginTop: 30 }}>
         <Keyboard setBoard={updateBoard} />
       </div>
     </div>
